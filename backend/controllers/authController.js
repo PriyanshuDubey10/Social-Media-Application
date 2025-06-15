@@ -37,7 +37,8 @@ const registerUser = async(req,res) =>{
 
         return response(res,201,"User created successfully",{
              username:newUser.username,
-             email:newUser.email
+             email:newUser.email,
+             token:accessToken
         })
 
     } catch (error) {
@@ -73,7 +74,8 @@ const loginUser = async(req,res) =>{
 
         return response(res,201,"User logged in successfully",{
              username:user.username,
-             email:user.email
+             email:user.email,
+            token:accessToken
         })
 
     } catch (error) {

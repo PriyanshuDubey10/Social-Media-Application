@@ -76,7 +76,10 @@ const Page = () => {
   const onSubmitRegister = async(data) =>{
     try {
        const result = await registerUser(data)
+       console.log('this is data',result)
         if(result.status === 'success'){
+          const token = result.data.token;
+      localStorage.setItem("token", token);
           router.push('/')
         }
         toast.success('User register successfully')
@@ -100,6 +103,8 @@ const Page = () => {
     try {
        const result = await loginUser(data)
         if(result.status === 'success'){
+                 const token = result.data.token;
+      localStorage.setItem("token", token);
           router.push('/')
         }
         toast.success('User login successfully')

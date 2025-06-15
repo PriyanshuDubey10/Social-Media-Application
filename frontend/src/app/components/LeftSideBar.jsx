@@ -38,6 +38,7 @@ const LeftSideBar = () => {
     try {
       const result = await logout();
       if (result?.status == "success") {
+        localStorage.removeItem("token");
         router.push("/user-login");
         clearUser();
       }
